@@ -1,5 +1,5 @@
 # angular-testes
-Espaço para testes com angular 4 zerado com servidor backend com CRUD básico
+Espaço para testes com angular 4 zerado com servidor backend contendo CRUD básico entre alguns valores de exemplo. Este repositório serve para qualquer outro tipo de linguagem que necessita de valores de CRUD de testes para fins de aprendizado.
 
 Necessário:
 - docker-compose
