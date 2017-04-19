@@ -2,7 +2,7 @@ db1:
   image: mysql:latest
   container_name: db1
   volumes:
-    - C:/Users/henrique/Desktop/angular_testes/database:/var/lib/mysql
+    - C:/Users/henrique/Desktop/docker/angular_testes/database:/var/lib/mysql
   environment:
     - MYSQL_ROOT_PASSWORD=root
   ports:
@@ -18,7 +18,7 @@ app:
   container_name: app
   restart: always
   volumes:
-    - C:/Users/henrique/Desktop/angular_testes/app:/var/www/html
+    - C:/Users/henrique/Desktop/docker/angular_testes/app:/var/www/html
   ports:
     - 80:80
 backend:
@@ -32,7 +32,7 @@ backend:
   container_name: backend
   restart: always
   volumes:
-    - C:/Users/henrique/Desktop/angular_testes/backend:/var/www/html
+    - C:/Users/henrique/Desktop/docker/angular_testes/backend:/var/www/html
   links:
     - db1:db1
   ports:
