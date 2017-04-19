@@ -10,6 +10,7 @@ Container backend:
 - CRUD utilizando tabelas: user, curso, curso_aluno;
 - Link com container db1)
 - Porta: 8080
+- JWT Configurado e setado em uma rota default (Api route)
 
 Container database:
 - Banco de dados mysql;
