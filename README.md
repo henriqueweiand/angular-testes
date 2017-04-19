@@ -30,5 +30,6 @@ Instalação:
 - Abra o arquivo "docker-compose.yml" e ajuste os diretórios conforme sua disposição de diretórios.
 - Com terminal nodejs acesse a pasta em sua raiz, e execute: "docker-compose up -d".
 - Verifique com "docker-compose ps -a" se todas as maquinas estão com "Up".
+- Acesse com docker o container Backend com o comando "docker exec -it backend bash", logo utilize "cd /var/www/html" e "compose update", "npm install".
 
 PS: As vezes as maquinas demoram um pouco para subir. Se necessário de "docker-compose down" e suba novamente.
