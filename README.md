@@ -25,10 +25,9 @@ Cottainer app:
 Informações importantes:
 - A pasta database esta sinconizada no git pois pensei ser mais facil para todos, assim não é necessário restaurar o arquivo de banco de dados "teste.sql"... Porem se acharem necessário, o mesmo esta no diretório raiz.
 
-Instalação
-
-1º Abra o arquivo "docker-compose.yml" e ajuste os diretórios conforme sua disposição de diretórios.
-2º Com terminal nodejs acesse a pasta em sua raiz, e execute: "docker-compose up -d".
-3º Verifique com "docker-compose ps -a" se todas as maquinas estão com "Up".
+Instalação:
+- Abra o arquivo "docker-compose.yml" e ajuste os diretórios conforme sua disposição de diretórios.
+- Com terminal nodejs acesse a pasta em sua raiz, e execute: "docker-compose up -d".
+- Verifique com "docker-compose ps -a" se todas as maquinas estão com "Up".
 
 PS: As vezes as maquinas demoram um pouco para subir. Se necessário de "docker-compose down" e suba novamente.
