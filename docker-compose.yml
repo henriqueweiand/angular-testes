@@ -7,20 +7,6 @@ db1:
     - MYSQL_ROOT_PASSWORD=root
   ports:
     - 3306:3306
-app:
-  image: henriqueweiand/micsrv:1.4
-  environment:
-    - APACHE_RUN_USER=www-data
-    - APACHE_RUN_GROUP=www-data
-    - APACHE_LOG_DIR=/var/log/apache2
-    - APACHE_LOCK_DIR=/var/lock/apache2
-    - APACHE_PID_FILE=/var/run/apache2.pid
-  container_name: app
-  restart: always
-  volumes:
-    - C:/Users/henrique/Desktop/docker/angular-testes/app:/var/www/html
-  ports:
-    - 80:80
 backend:
   image: henriqueweiand/micsrv:1.4
   environment:

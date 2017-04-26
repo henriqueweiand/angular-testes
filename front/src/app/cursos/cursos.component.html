@@ -1,0 +1,41 @@
+<div class="row" style="margin-bottom:10px">
+  <div class="col-md-6">
+    <h3 style="margin:0px">
+      <span class="badge" [style.display]="cursos?.length ? 'block' : 'none'" style="float: left;font-size: 20px;">{{total}}</span> &nbsp; Lista de cursos <small>- página: {{pagina}}</small>
+    </h3>
+  </div>
+
+  <div class="col-md-6">
+    <div class="btn-group pull-right" role="group">
+      <button class="btn btn-primary" type="button" *ngIf="cursosMarcados.length > 0" (click)="deletar()">Excluir</button>
+      <button class="btn btn-primary" type="button" *ngIf="cursosMarcados.length > 0" [disabled]="cursosMarcados.length > 1" (click)="alterar()">Altertar</button>
+      <button class="btn btn-success" type="button" [routerLink]="['novo']">Cadastrar</button>
+    </div>
+  </div>
+</div>
+<div class="row">
+
+  <table class="table table-hover">
+    <tr>
+      <td *ngIf="!cursos?.length">
+        Carregando...
+      </td>
+    </tr>
+    <tr *ngFor="let curso of cursos">
+      <td>
+        <input type="checkbox" name="contador" (change)="contador($event, curso)" [checked]="verificaMarcado(curso)">
+      </td>
+      <td>
+        {{curso.id}}
+      </td>
+      <td>
+        {{curso.nome}}
+      </td>
+    </tr>
+  </table>
+
+  <div class="btn-group" role="toolbar">
+    <div *ngFor="let pag of gerarArray(last_page)" [class.active]="pag == pagina" class="btn btn-default" role="group" (click)="paginar(pag)">{{pag}}</div>
+  </div>
+
+</div>
