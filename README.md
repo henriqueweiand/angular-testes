@@ -1,8 +1,8 @@
 # angular-testes
-Espaço para testes com angular 4 zerado com servidor backend contendo CRUD básico entre alguns valores de exemplo. Este repositório serve para qualquer outro tipo de linguagem que necessita de valores de CRUD de testes para fins de aprendizado.
+Espaço de aprendizagem com Angular4 aplicando conceitos básicos de CRUD. Possui ambiente Docker com MySQL e backend configurado com Laravel 5.4 com suas devidas end points para consumo dos testes.
 
 Necessário:
-- docker-compose
+- docker
 - nodejs
 
 Container backend:
@@ -18,10 +18,6 @@ Container database:
 - User: root
 - Password: root
 - Acesso externo 3306
-
-Cottainer app:
-- Angular 4 com rotas default tudo zerado;
-- Porta: 80
 
 Informações importantes:
 - A pasta database esta sinconizada no git pois pensei ser mais facil para todos, assim não é necessário restaurar o arquivo de banco de dados "teste.sql"... Porem se acharem necessário, o mesmo esta no diretório raiz.
