@@ -38,7 +38,7 @@ class CursoController extends Controller
         $data = $request -> all();
 
         if(!$insert = $this -> curso -> create([
-            'nome' => $data -> nome,
+            'nome' => $data['nome'],
         ])) {
             return response()->json(['error' => 'Erro ao inserir'], 500);
         }
@@ -70,6 +70,7 @@ class CursoController extends Controller
     public function update(Request $request, $id)
     {
         $input = $request -> all();
+        unset($input['id']);
 
         if(!$curso = $this -> curso -> where('id', $id))
             return response() -> json(['error' => 'curso_not_found'], 500);
