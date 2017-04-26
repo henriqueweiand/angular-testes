@@ -8,6 +8,7 @@ Necessário:
 - nodejs
 
 Container backend: (http://localhost:8080)
+- Utilizando Docker image -> https://hub.docker.com/r/henriqueweiand/micsrv/
 - Laravel 5.4;
 - CRUD utilizando tabelas: user, curso, curso_aluno;
 - Link com container db1)
