@@ -7,7 +7,7 @@ Necessário:
 - docker
 - nodejs
 
-Container backend:
+Container backend: (http://localhost:8080)
 - Laravel 5.4;
 - CRUD utilizando tabelas: user, curso, curso_aluno;
 - Link com container db1)
