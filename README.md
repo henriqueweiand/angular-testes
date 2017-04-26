@@ -1,6 +1,8 @@
 # angular-testes
 Espaço de aprendizagem com Angular4 aplicando conceitos básicos de CRUD. Possui ambiente Docker com MySQL e backend configurado com Laravel 5.4 com suas devidas end points para consumo dos testes.
 
+Resolvi, versionar a pasta da database tbm, para o pessoal que subir diretamente o container ja ter a db restaurada logo de partida.
+
 Necessário:
 - docker
 - nodejs
