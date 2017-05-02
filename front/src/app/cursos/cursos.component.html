@@ -34,8 +34,6 @@
     </tr>
   </table>
 
-  <div class="btn-group" role="toolbar">
-    <div *ngFor="let pag of gerarArray(last_page)" [class.active]="pag == pagina" class="btn btn-default" role="group" (click)="paginar(pag)">{{pag}}</div>
-  </div>
+  <app-paginacao [lastpage]="last_page" [pagina]="pagina" [tipo]="'cursos'"></app-paginacao>
 
 </div>

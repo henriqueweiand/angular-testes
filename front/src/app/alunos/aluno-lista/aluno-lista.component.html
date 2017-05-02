@@ -1,3 +1,33 @@
-<p>
-  aluno-lista works!
-</p>
+<div class="alert alert-info" role="alert">
+  Selecione para visualização das informações da pessoa.
+</div>
+
+<div class="well">
+  
+  <div class="col-md-12">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Pesquisar" [(ngModel)]="_filtro">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-12 -->
+
+  <div class="clearfix"></div>
+
+</div>
+
+<div class="list-group">
+  <a class="list-group-item active">
+    Lista
+    <span class="label label-default pull-right">Total {{_total}}</span>
+  </a>
+  <a class="list-group-item" *ngIf="!_alunos?.length">
+    Carregando...
+  </a>
+  <a class="list-group-item" *ngFor="let aluno of _alunos | alunos:_filtro" [routerLink]="['/alunos', aluno.id]" [queryParams]="{pagina: _pagina}" (click)="marcar(aluno.id)" [class.marcado]="aluno.id == _selecionado">{{aluno.name}}</a>
+</div>
+
+<app-paginacao [lastpage]="_last_page" [pagina]="_pagina" [tipo]="'alunos'" *ngIf="!_filtro"></app-paginacao>

@@ -19,6 +19,6 @@ import { HomeComponent } from './struct/home/home.component';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

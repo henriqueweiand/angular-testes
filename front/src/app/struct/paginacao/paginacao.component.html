@@ -1,0 +1,3 @@
+<div class="btn-group" role="toolbar">
+  <div *ngFor="let pag of gerarArray(last_page)" [class.active]="pag == _pagina" class="btn btn-default" role="group" (click)="paginar(pag)">{{pag}}</div>
+</div>

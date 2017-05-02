@@ -86,20 +86,6 @@ export class CursosComponent implements OnInit, OnDestroy {
     return false;
   }
 
-  gerarArray(pagina_limit) {
-    let arrayReturn: any[] = [];
-
-    for(let i=1; i<=pagina_limit; i++) {
-      arrayReturn.push(i);
-    }
-
-    return arrayReturn;
-  }
-
-  paginar(pagina: number) {
-    this._router.navigate(['cursos'], {queryParams: {pagina: pagina}});
-  }
-
   alterar() {
     this._router.navigate(['cursos/editar', this.cursosMarcados[0].id]);
   }
