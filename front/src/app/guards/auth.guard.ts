@@ -2,14 +2,14 @@ import { Observable } from 'rxjs/Rx';
 import { Injectable } from '@angular/core';
 import { CanActivate, CanLoad, ActivatedRouteSnapshot, RouterStateSnapshot, Router, Route } from '@angular/router';
 
-import { LoginService } from './../login/login.service';
+import { UtilitiesService } from './../shared/utilities.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanLoad {
 
   constructor(
     private _route: Router,
-    private _loginService: LoginService
+    private _utilitiesService: UtilitiesService
   ) { }
 
   canActivate(
@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate, CanLoad {
   }
 
   private verificarAcesso() {
-    if(this._loginService.checkLogin()) {
+    if(this._utilitiesService.checkLogin()) {
       return true;
     }
 

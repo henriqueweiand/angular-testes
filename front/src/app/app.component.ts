@@ -1,4 +1,7 @@
+import { Subscription } from 'rxjs/RX';
 import { Component, OnInit } from '@angular/core';
+
+import { UtilitiesService } from './shared/utilities.service';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   
-  constructor() {}
+  private logado: boolean = false;
+
+  constructor(
+    private _utilitiesService: UtilitiesService,
+  ) {
+    
+  }
 
   ngOnInit() {
+    if(this._utilitiesService.checkLogin)
+      this.logado = true;
+    else
+      this.logado = false;
+  }
 
+  ngOnDestroy() {
+    
   }
 
 }

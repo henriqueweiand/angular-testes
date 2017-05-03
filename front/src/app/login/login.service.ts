@@ -33,19 +33,12 @@ export class LoginService {
     
     this.postLogin(formValues).subscribe((res: any) => {
       this._utilitiesService.setLocalStorage('token', res.token);
+      this._utilitiesService.loginEmitter.emit(true);
     }, (res: Response) => {
       alert('Usuário/Senha Inválidos');
+      this._utilitiesService.loginEmitter.emit(false);
     });
 
-  }
-
-  public checkLogin() {
-    let token = this._utilitiesService.getLocalStorage("token", "");
-
-    if(token != undefined && token != '') 
-      return true;
-    else
-      return false;
   }
 
 }

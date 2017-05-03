@@ -16,7 +16,14 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private _loginService: LoginService,
-  ) { }
+    private _utilitiesService: UtilitiesService,
+  ) { 
+    this._utilitiesService.loginEmitter.subscribe(
+      estadoLogin => { 
+        console.log('opa', estadoLogin);
+      }
+    );
+  }
 
   ngOnInit() {
   }
