@@ -1,4 +1,3 @@
-import { HomeComponent } from './struct/home/home.component';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -18,11 +17,6 @@ const routes: Routes = [
   },
   {path: 'login', 
     loadChildren: 'app/login/login.module#LoginModule'
-  },
-  {path: 'home', 
-    component: HomeComponent,
-    canActivate: [AuthGuard],
-    canLoad: [AuthGuard]
   },
   {path: '', redirectTo: '/login', pathMatch: 'full'}
 ];

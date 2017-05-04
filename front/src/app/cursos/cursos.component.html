@@ -1,39 +1,45 @@
-<div class="row" style="margin-bottom:10px">
-  <div class="col-md-6">
-    <h3 style="margin:0px">
-      <span class="badge" [style.display]="cursos?.length ? 'block' : 'none'" style="float: left;font-size: 20px;">{{total}}</span> &nbsp; Lista de cursos <small>- página: {{pagina}}</small>
-    </h3>
-  </div>
+<app-navbar></app-navbar>
 
-  <div class="col-md-6">
-    <div class="btn-group pull-right" role="group">
-      <button class="btn btn-primary" type="button" *ngIf="cursosMarcados.length > 0" (click)="deletar()">Excluir</button>
-      <button class="btn btn-primary" type="button" *ngIf="cursosMarcados.length > 0" [disabled]="cursosMarcados.length > 1" (click)="alterar()">Altertar</button>
-      <button class="btn btn-success" type="button" [routerLink]="['novo']">Cadastrar</button>
+<div class="container">
+
+  <div class="row" style="margin-bottom:10px">
+    <div class="col-md-6">
+      <h3 style="margin:0px">
+        <span class="badge" [style.display]="cursos?.length ? 'block' : 'none'" style="float: left;font-size: 20px;">{{total}}</span> &nbsp; Lista de cursos <small>- página: {{pagina}}</small>
+      </h3>
+    </div>
+
+    <div class="col-md-6">
+      <div class="btn-group pull-right" role="group">
+        <button class="btn btn-primary" type="button" *ngIf="cursosMarcados.length > 0" (click)="deletar()">Excluir</button>
+        <button class="btn btn-primary" type="button" *ngIf="cursosMarcados.length > 0" [disabled]="cursosMarcados.length > 1" (click)="alterar()">Altertar</button>
+        <button class="btn btn-success" type="button" [routerLink]="['novo']">Cadastrar</button>
+      </div>
     </div>
   </div>
-</div>
-<div class="row">
+  <div class="row">
 
-  <table class="table table-hover">
-    <tr>
-      <td *ngIf="!cursos?.length">
-        Carregando...
-      </td>
-    </tr>
-    <tr *ngFor="let curso of cursos">
-      <td>
-        <input type="checkbox" name="contador" (change)="contador($event, curso)" [checked]="verificaMarcado(curso)">
-      </td>
-      <td>
-        {{curso.id}}
-      </td>
-      <td>
-        {{curso.nome}}
-      </td>
-    </tr>
-  </table>
+    <table class="table table-hover">
+      <tr>
+        <td *ngIf="!cursos?.length">
+          Carregando...
+        </td>
+      </tr>
+      <tr *ngFor="let curso of cursos">
+        <td>
+          <input type="checkbox" name="contador" (change)="contador($event, curso)" [checked]="verificaMarcado(curso)">
+        </td>
+        <td>
+          {{curso.id}}
+        </td>
+        <td>
+          {{curso.nome}}
+        </td>
+      </tr>
+    </table>
 
-  <app-paginacao [lastpage]="last_page" [pagina]="pagina" [tipo]="'cursos'"></app-paginacao>
+    <app-paginacao [lastpage]="last_page" [pagina]="pagina" [tipo]="'cursos'"></app-paginacao>
+
+  </div>
 
 </div>

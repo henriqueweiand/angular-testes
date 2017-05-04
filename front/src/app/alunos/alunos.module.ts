@@ -11,6 +11,7 @@ import { AlunosComponent } from './alunos.component';
 import { AlunosService } from './alunos.service';
 import { AlunoDetalheComponent } from './aluno-detalhe/aluno-detalhe.component';
 import { AlunoListaComponent } from './aluno-lista/aluno-lista.component';
+import { AlunoFormularioComponent } from './aluno-formulario/aluno-formulario.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { AlunoListaComponent } from './aluno-lista/aluno-lista.component';
     AlunosComponent,
     AlunoDetalheComponent,
     AlunoListaComponent,
-    AlunosPipe
+    AlunosPipe,
+    AlunoFormularioComponent
   ],
   providers: [
     AlunosService

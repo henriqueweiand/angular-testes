@@ -1,11 +1,7 @@
-import { Injectable, EventEmitter } from '@angular/core';
-
-import 'rxjs/add/operator/catch';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class UtilitiesService {
-
-    loginEmitter = new EventEmitter<boolean>();
 
      constructor() {
         
@@ -60,7 +56,7 @@ export class UtilitiesService {
     * @param string - field
     */
 
-    removeLocalStoragefunction(field: string) {
+    removeLocalStorage(field: string) {
         localStorage.removeItem(field);
     }
 
@@ -71,12 +67,10 @@ export class UtilitiesService {
     checkLogin() {
         let token = this.getLocalStorage("token", "");
 
-        console.log('token', token);
-
         if(token != undefined && token != '') 
             return true;
         else
             return false;
     }
-
+    
 }

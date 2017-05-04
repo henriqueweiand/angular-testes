@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { UtilitiesService } from './../../shared/utilities.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _utilitiesService: UtilitiesService,
+    private _router: Router,
+  ) { }
 
   ngOnInit() {
+  }
+
+  sair() {
+    this._utilitiesService.removeLocalStorage('token');
+    this._router.navigate(['/login']);
   }
 
 }

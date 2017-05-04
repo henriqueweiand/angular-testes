@@ -1,7 +1,8 @@
-import { CursosService } from './cursos.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/RX';
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { CursosService } from './cursos.service';
 
 @Component({
   selector: 'app-cursos',

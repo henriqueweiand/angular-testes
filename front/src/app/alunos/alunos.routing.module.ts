@@ -4,10 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AlunosComponent } from './alunos.component';
 import { AlunoDetalheComponent } from './aluno-detalhe/aluno-detalhe.component';
+import { AlunoFormularioComponent } from './aluno-formulario/aluno-formulario.component';
 
 const alunosRoutes: Routes = [
     {path: '', component: AlunosComponent, children: [
-        {path: ':id', component: AlunoDetalheComponent}
+        {path: 'novo', component: AlunoFormularioComponent},
+        {path: 'editar/:id', component: AlunoFormularioComponent},
+        {path: ':id', component: AlunoDetalheComponent},        
     ]},    
 ];
 

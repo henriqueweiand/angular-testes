@@ -19,19 +19,18 @@ export class AuthGuard implements CanActivate, CanLoad {
     return this.verificarAcesso();
   }
 
-  private verificarAcesso() {
-    if(this._utilitiesService.checkLogin()) {
-      return true;
-    }
-
-    this._route.navigate(['/login']);
-    return false;
-  }
-
   canLoad(
     route: Route
   ) : Observable<boolean>|Promise<boolean>|boolean {
     return this.verificarAcesso();
+  }
+
+  private verificarAcesso() {
+    if(this._utilitiesService.checkLogin())
+      return true;
+
+    this._route.navigate(['/login']);
+    return false;
   }
 
 }

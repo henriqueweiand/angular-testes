@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs/RX';
-import { Response } from '@angular/http';
+import { Router } from '@angular/router';
 
-import { UtilitiesService } from './../shared/utilities.service';
 import { LoginService } from './login.service';
 
 @Component({
@@ -13,16 +11,14 @@ import { LoginService } from './login.service';
 export class LoginComponent implements OnInit {
 
   private login: any[] = [];
+  private _loading: boolean = false;
+  private _error: string = '';
 
   constructor(
     private _loginService: LoginService,
-    private _utilitiesService: UtilitiesService,
+    private _router: Router,
   ) { 
-    this._utilitiesService.loginEmitter.subscribe(
-      estadoLogin => { 
-        console.log('opa', estadoLogin);
-      }
-    );
+    
   }
 
   ngOnInit() {
@@ -30,7 +26,18 @@ export class LoginComponent implements OnInit {
 
   onSubmit(form, event) {
     event.preventDefault();
-    this._loginService.fazerLogin(form.value);    
+    this._loading = true;
+
+    this._loginService.login(form.value)
+      .subscribe(
+        result => {
+          this._router.navigate(['/cursos']);
+        }, result => {
+          this._error = 'Usuário e/ou senha inválidos.';
+          this._loading = false;
+        } 
+    );
+
   }
 
 }

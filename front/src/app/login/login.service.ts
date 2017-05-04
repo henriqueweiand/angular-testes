@@ -1,8 +1,7 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 
 import { UtilitiesService } from './../shared/utilities.service';
@@ -22,23 +21,19 @@ export class LoginService {
     this._headers.append('Content-Type', 'application/json');
   }
 
-  public postLogin(formValues: any)
-  {
+  login(formValues: any): Observable<boolean> {
     return this._http.post(this._baseUrl, JSON.stringify(formValues), { headers: this._headers })
-      .map((res: Response) => res.json())
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-  }
-  
-  public fazerLogin(formValues: any) {
-    
-    this.postLogin(formValues).subscribe((res: any) => {
-      this._utilitiesService.setLocalStorage('token', res.token);
-      this._utilitiesService.loginEmitter.emit(true);
-    }, (res: Response) => {
-      alert('Usuário/Senha Inválidos');
-      this._utilitiesService.loginEmitter.emit(false);
-    });
+      .map((response: Response) => {
+        let token = response.json() && response.json().token;
 
+        if (token) {
+          this._utilitiesService.setLocalStorage('token', token);
+          return true;
+        } else {
+          return false;
+        }
+
+    });
   }
 
 }
