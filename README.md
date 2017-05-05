@@ -3,6 +3,8 @@ Espaço de aprendizagem com Angular4 aplicando conceitos básicos de CRUD. Possu
 
 Resolvi, versionar a pasta da database tbm, para o pessoal que subir diretamente o container ja ter a db restaurada logo de partida.
 
+[WIKI - Resumo com fotos](https://github.com/henriqueweiand/angular4-testes/wiki/Resumo---instala%C3%A7%C3%A3o)
+
 Necessário:
 - docker
 - nodejs
