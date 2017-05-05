@@ -13,6 +13,8 @@ export class AlunoDetalheComponent implements OnInit {
 
   private _aluno_id: number;
   private _inscricaoRouter: Subscription;
+  private _usuario: any;
+  private _loading: boolean = true;
 
   constructor(
     private _route: ActivatedRoute,
@@ -26,6 +28,15 @@ export class AlunoDetalheComponent implements OnInit {
     this._inscricaoRouter = this._route.params.subscribe(
       (response: Response) => {
         this._aluno_id = response['id'];
+        this._loading  = true;
+        
+        this._alunoService.getAluno(this._aluno_id).subscribe(
+          (usuario: any) => {
+            this._usuario = usuario.user;
+            this._loading = false;
+          }
+        );
+
       }
     );
 

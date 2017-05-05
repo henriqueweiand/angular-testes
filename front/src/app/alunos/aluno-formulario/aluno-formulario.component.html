@@ -1,3 +1,48 @@
-<p>
-  aluno-formulario works!
-</p>
+<div [hidden]="!_loading" style="text-align: center" class="row">
+  <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+</div>
+
+<div class="panel panel-default" [hidden]="_loading">
+
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ _usuario?.name }}</h3>
+  </div>
+
+  <form #f="ngForm" (submit)="onSubmit(f, $event)">
+
+    <div class="panel-body">
+      
+      <div class="row">
+        <div class="form-group" class="col-md-2">
+          <label for="id">Id</label>
+          <input type="text" class="form-control" id="id" name="id" placeholder="Id" readonly [ngModel]="_usuario?.id">
+        </div>
+
+        <div class="form-group col-md-10" [class.has-error]="!name.valid && name.touched" [class.has-feedback]="!name.valid && name.touched">
+          <label for="name" class="control-label">name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="name" [ngModel]="_usuario?.name" required #name="ngModel">
+
+          <div *ngIf="!name.valid && name.touched" class="alert alert-danger">
+            O nome é obrigatório
+          </div>
+        </div>
+
+        <div class="form-group col-md-12" style="margin-top:10px" [class.has-error]="!email.valid && email.touched" [class.has-feedback]="!email.valid && email.touched">
+          <label for="email" class="control-label">email</label>
+          <input type="text" class="form-control" id="email" name="email" placeholder="email" [ngModel]="_usuario?.email" required #email="ngModel">
+
+          <div *ngIf="!email.valid && email.touched" class="alert alert-danger">
+            O email é obrigatório
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="panel-footer">
+      <button type="submit" class="btn btn-sm btn-success pull-right" [disabled]="!f.valid">Salvar</button>
+      <div class="clearfix"></div>
+    </div>
+
+  </form>
+</div>

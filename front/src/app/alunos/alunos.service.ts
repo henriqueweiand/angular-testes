@@ -32,4 +32,25 @@ export class AlunosService {
         .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+  public getAluno(id: number) 
+  {
+      return this._http.get(this._baseUrl+"/"+id, { headers: this._headers })
+        .map((res: Response) => res.json())
+        .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  public updateAluno(formValues: any)
+  {
+    return this._http.put(this._baseUrl+"/"+formValues.id, JSON.stringify(formValues), { headers: this._headers })
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  public createAluno(formValues: any)
+  {
+    return this._http.post(this._baseUrl, JSON.stringify(formValues), { headers: this._headers })
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
 }
